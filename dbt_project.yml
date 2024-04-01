@@ -1,0 +1,28 @@
+# dbt_project.yml
+
+name: 'access_code_transformations'
+
+version: '1.0'
+
+# Configuration for connecting to your target database
+config:
+  profiles.yml: 'profiles.yml'
+
+# Define sources
+sources:
+  - name: SFTP
+    tables:
+      - name: access_code
+        identifier: access_code
+
+# Additional project configurations
+models:
+  access_code_transformations:
+    materialized: view
+    schema: dbt_access_code
+
+seeds:
+  access_code_seed:
+    schema: dbt_access_code
+    table_name: access_code_seed
+

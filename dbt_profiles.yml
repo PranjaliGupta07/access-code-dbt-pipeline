@@ -1,0 +1,19 @@
+default:
+  outputs:
+    dev:
+      dbname: neondb
+      host: ep-silent-credit-a580bqi5.us-east-2.aws.neon.tech
+      pass: HPclLEhG49WB
+      port: 5432
+      schema: public
+      threads: 1
+      type: postgres
+      user: neondb_owner
+  target: dev
+
+# dbt_project.yml
+sources:
+  - name: SFTP
+    tables:
+      - name: access_code_csv  # Update the table name here
+        identifier: access_code
